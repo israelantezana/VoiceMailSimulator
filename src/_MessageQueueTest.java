@@ -40,6 +40,10 @@ public class _MessageQueueTest {
 		assertEquals(mundo,queue.peek());
 	}
 	
+	@Test
+	public void peekOfAnEmptyQueueShouldReturnNull() {
+		MessageQueue queue = new MessageQueue();
+		assertNull(queue.peek());
+	}
 	
-
 }
