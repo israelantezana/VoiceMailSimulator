@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
-public class ConnectionTestRecording {
+public class _ConnectionRecordingTest {
 
     Mailbox currentMailbox;
     MailSystem mailSystem;
@@ -26,7 +26,7 @@ public class ConnectionTestRecording {
     }
 
     @Test
-    public void inLoginShouldVerifiPassShowMessageAndSetStateToMailBoxMenu() {
+    public void inLogItShouldVerifiPassShowMessageAndSetStateToMailBoxMenu() {
 
         when(mailSystem.findMailbox("1")).thenReturn(currentMailbox);
         when(currentMailbox.checkPasscode("2")).thenReturn(true);
@@ -40,7 +40,7 @@ public class ConnectionTestRecording {
     }
 
     @Test
-    public void inLoginShouldVerifiPassReturnFalseAndShowErrorMessage() {
+    public void inLogItShouldVerifiPassReturnFalseAndShowErrorMessage() {
         when(mailSystem.findMailbox("1")).thenReturn(currentMailbox);
         when(currentMailbox.checkPasscode("2")).thenReturn(false);
 

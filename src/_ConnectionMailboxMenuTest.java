@@ -8,7 +8,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by Deleguard on 4/1/16.
  */
-public class ConnectionTestMailboxMenu {
+public class _ConnectionMailboxMenuTest {
 
 
     Mailbox currentMailbox;

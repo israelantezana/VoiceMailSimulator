@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-public class ConnectionTestGeneral {
+public class _ConnectionNewTest {
 
     Mailbox currentMailbox;
     MailSystem mailSystem;
@@ -34,7 +34,7 @@ public class ConnectionTestGeneral {
     }
 
     @Test
-    public void resetConnectionShouldShowInitialPromotAndSetStateToConnected() {
+    public void newConnectionShouldShowInitialPromotAndSetStateToConnected() {
         verify(phone).speak("Enter mailbox number followed by #");
         assert (connection.isConnected());
     }
@@ -54,40 +54,6 @@ public class ConnectionTestGeneral {
         connection.dial("1");
         connection.dial("#");
         verify(phone).speak("Incorrect mailbox number. Try again!");
-    }
-
-    @Test
-    public void inMailSystemMenuChangePasscode() {
-        when(mailSystem.findMailbox("1")).thenReturn(currentMailbox);
-        when(currentMailbox.checkPasscode("1")).thenReturn(true);
-
-        connection.dial("1");
-        connection.dial("#");
-        connection.dial("1");
-        connection.dial("#");
-        connection.dial("2");
-        connection.dial("9");
-        connection.dial("#");
-        verify(currentMailbox).setPasscode("9");
-        assert (connection.isInMailBoxMenu());
-        verify(phone,times(2)).speak(MAILBOX_MENU_TEXT);
-    }
-
-    @Test
-    public void inMailSystemMenuShouldChangeGreeting(){
-        when(mailSystem.findMailbox("1")).thenReturn(currentMailbox);
-        when(currentMailbox.checkPasscode("1")).thenReturn(true);
-
-        connection.dial("1");
-        connection.dial("#");
-        connection.dial("1");
-        connection.dial("#");
-        connection.dial("3");
-        connection.record("Greeting");
-        connection.dial("#");
-        verify(currentMailbox).setGreeting("Greeting");
-        assert(connection.isInMailBoxMenu());
-        verify(phone,times(2)).speak(MAILBOX_MENU_TEXT);
     }
 
     @Test

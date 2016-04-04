@@ -5,7 +5,7 @@ import org.junit.Before;
 import static org.mockito.Mockito.*;
 
 
-public class ConnectionTestMessageMenu {
+public class _ConnectionMessageMenuTest {
     Mailbox currentMailbox;
     MailSystem mailSystem;
     Telephone phone;
@@ -33,7 +33,7 @@ public class ConnectionTestMessageMenu {
     }
 
     @Test
-    public void inMessageMenuListenMessageNoMessages(){
+    public void inMessageMenuListenMessageNoMessagesItShouldShowError(){
         when(currentMailbox.getCurrentMessage()).thenReturn(null);
         connection.dial("1");
         verify(phone).speak("No messages.\n"+MESSAGE_MENU_TEXT);
@@ -41,7 +41,7 @@ public class ConnectionTestMessageMenu {
 
 
     @Test
-    public void inMessageMenuListenCurrentMessage(){
+    public void inMessageMenuListenCurrentMessageShouldShowIT(){
         Message message = new Message("This is a message.");
         when(currentMailbox.getCurrentMessage()).thenReturn(message);
         connection.dial("1");
