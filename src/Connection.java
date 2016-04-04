@@ -199,14 +199,7 @@ public class Connection
       }
    }
    
-   public boolean isConnected(){
-	   return state == CONNECTED;
-   }
    
-   public boolean isRecording() {
-	   return state == RECORDING;
-	}
-
    private MailSystem system;
    private Mailbox currentMailbox;
    private String currentRecording;
@@ -234,10 +227,30 @@ public class Connection
          + "Enter 3 to delete the current message\n"
          + "Enter 4 to return to the main menu";
    
-public boolean isInMailBoxMenu() {
-	// TODO Auto-generated method stub
-	return state==MAILBOX_MENU;
-}
+
+public boolean isConnected() {
+    return state == CONNECTED;
+ }
+
+ public boolean isRecording() {
+    return state == RECORDING;
+ }
+
+ public boolean isInMailBoxMenu() {
+    return state == MAILBOX_MENU;
+ }
+
+ public boolean isInMessageMenu() {
+    return state == MESSAGE_MENU;
+ }
+
+ public boolean isInChangePassword() {
+    return state == CHANGE_PASSCODE;
+ }
+
+ public boolean isInChangeGreeting() {
+    return state == CHANGE_GREETING;
+ }
 
 }
 
