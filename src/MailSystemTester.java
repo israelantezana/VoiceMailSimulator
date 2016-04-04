@@ -11,6 +11,8 @@ public class MailSystemTester
       MailSystem system = new MailSystem(MAILBOX_COUNT);
       Scanner console = new Scanner(System.in);
       Telephone p = new Telephone(console);
+      Menu2 menu = new Menu2();
+      menu.setVisible(true);
       Connection c = new Connection(system, p);
       p.run(c);
    }
