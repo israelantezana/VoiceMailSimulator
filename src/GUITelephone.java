@@ -8,7 +8,7 @@
  *
  * @author laptop
  */
-public class GUITelephone extends javax.swing.JFrame {
+public class GUITelephone extends javax.swing.JFrame implements UserInterface{
 
     /**
      * Creates new form Menu2
@@ -16,6 +16,8 @@ public class GUITelephone extends javax.swing.JFrame {
     public GUITelephone() {
         initComponents();
     }
+    
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -352,4 +354,17 @@ public class GUITelephone extends javax.swing.JFrame {
     private javax.swing.JTextField txtDisplay;
     private javax.swing.JTextField txtMessage;
     // End of variables declaration//GEN-END:variables
+	
+    @Override
+	public void speak(String output) {
+	 txtDisplay.setText(output);	
+	}
+
+
+
+	@Override
+	public void run(Connection c) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -10,7 +10,7 @@ public class Connection
       @param s a MailSystem object
       @param p a Telephone object
    */
-   public Connection(MailSystem s, Telephone p)
+   public Connection(MailSystem s, UserInterface p)
    {
       system = s;
       phone = p;
@@ -204,7 +204,7 @@ public class Connection
    private Mailbox currentMailbox;
    private String currentRecording;
    private String accumulatedKeys;
-   private Telephone phone;
+   private UserInterface phone;
    private int state;
 
    private static final int DISCONNECTED = 0;

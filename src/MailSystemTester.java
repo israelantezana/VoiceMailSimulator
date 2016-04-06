@@ -10,10 +10,10 @@ public class MailSystemTester
    {
       MailSystem system = new MailSystem(MAILBOX_COUNT);
       Scanner console = new Scanner(System.in);
-      Telephone p = new Telephone(console);
+      UserInterface p = new Telephone(console);
       GUITelephone menu = new GUITelephone();
       menu.setVisible(true);
-      Connection c = new Connection(system, p);
+      Connection c = new Connection(system, menu);
       p.run(c);
    }
 
