@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
    Connects a phone to the mail system. The purpose of this
    class is to keep track of the state of a connection, since
@@ -10,11 +13,19 @@ public class Connection
       @param s a MailSystem object
       @param p a Telephone object
    */
-   public Connection(MailSystem s, UserInterface p)
+	List<UserInterface> uis;
+	
+	
+   public Connection(MailSystem s, List uis)
    {
+	  this.uis = uis;
       system = s;
-      phone = p;
       resetConnection();
+   }
+   
+   public void addUI(UserInterface ui){
+	   uis.add(ui);
+	   
    }
 
    /**
@@ -66,8 +77,15 @@ public class Connection
       currentRecording = "";
       accumulatedKeys = "";
       state = CONNECTED;
-      phone.speak(INITIAL_PROMPT);
+      
+	speakToAllUIs(INITIAL_PROMPT);
+		
    }
+
+private void speakToAllUIs(String output) {
+	for(UserInterface ui : uis) 
+		ui.speak(output);
+}
 
    /**
       Try to connect the user with the specified mailbox.
@@ -81,7 +99,9 @@ public class Connection
          if (currentMailbox != null)
          {
             state = RECORDING;
+            
             phone.speak(currentMailbox.getGreeting());
+            
          }
          else
             phone.speak("Incorrect mailbox number. Try again!");
@@ -205,6 +225,7 @@ public class Connection
    private String currentRecording;
    private String accumulatedKeys;
    private UserInterface phone;
+   private UserInterface phone2;   
    private int state;
 
    private static final int DISCONNECTED = 0;
